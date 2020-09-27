@@ -42,8 +42,10 @@
           </v-col>
         </v-row>
          -->
-          <v-row class="full-body accent1 ma-0" style="" >
-            <v-col class="col-3 full-height ma-0 pa-0" style="" >
+          <v-row class="full-body accent1 ma-0" style="position:relative" >
+            <v-col class="col-3 ma-0 pa-0 accent2" style="position:relative;" >
+              <v-row class="accent1 ">
+                <v-col class="mb-1">
               <v-card class="accent3" flat style="width:70%;margin:0 15%">
                 <v-card-title class="white--text justify-center" style="position:relative;size:22px;top:0px" >Vis Wax</v-card-title>
                  <v-card-text class="text-center primary--text mb-0">
@@ -57,22 +59,36 @@
                   <div class="caption mb-1">fire,air,water,earth</div>
                 </v-card-text>
               </v-card>
-              <v-card class="my-4 pa-0 mx-0 accent2 text-center" flat style="width:100%;">
-                <div class="side-menu-overlayer"></div>
-                <div>hello</div>
-              </v-card>
+                </v-col>
+              </v-row>
+              <v-row class="my-2 mx-4 text-center primary--text accent2"  flat >
+                <v-col class="d-flex flex-column">
+                  <!-- to-do : need to use flex  -->
+                  <v-card
+                    v-for="name in sidesmenu"
+                    :key="name"
+                    class="pa-2 primary--text accent2" style="font-size:16px;cursor:pointer"
+                    outlined
+                    tile >
+                       <v-avatar tile class="ma-1" > <img :src="homeImg" style="height:35px;width:35px;" alt="sidemenus-icon" /></v-avatar>
+                        {{ name }}
+                  </v-card>
+                </v-col>
+              </v-row>
             </v-col>
-            <v-col class="col-9 full-height accent2 ma-0 pa-0" >
+            <v-col class="col-9 accent2 ma-0 pa-0" style="position:relative;z-index:2;auto" >
                 <div
-                :style="{ backgroundImage: `url(${bgImg})` }"
+                :style="{ backgroundImage: `url(${bgImg})`, zIndex:3 }"
                 class="ma-0 pa-0 solak-overlayer"
                 ></div>
+                <v-container>
+                  <div style="position:relative;z-index:4" >Solak</div>
+                </v-container>
             </v-col>
           </v-row>
       </v-main>
       <v-footer
         class="accent2"
-        app
       >
         <span class="white--text ">&copy; Power by Vuetify </span>
       </v-footer>
@@ -84,8 +100,9 @@
 <script>
 import visWaxInfos from '@/services/viswax'
 import travelmerchant from '@/services/travelmerchant'
-import image from './assets/rs3/Air_rune_detail.png'
-import bgImg from './assets/rs3/solak_crop.jpg'
+import image from '@/assets/rs3/Air_rune_detail.png'
+import bgImg from '@/assets/rs3/solak_crop.jpg'
+import homeImg from '@/assets/rs3/home.png'
 
 export default {
   name: 'App',
@@ -107,9 +124,9 @@ export default {
     }
   },
   mounted () {
-    this.visWaxHandler()
-    this.travelmerchantHandler()
-    this.resize()
+    // this.visWaxHandler()
+    // this.travelmerchantHandler()
+    // this.resize()
   },
   data () {
     return {
@@ -117,26 +134,40 @@ export default {
       travelmerchant: [],
       drawer: false,
       image: image,
-      bgImg: bgImg
+      bgImg: bgImg,
+      sidemenu_height: '41%',
+      homeImg: homeImg,
+      sidesmenu: ['Dashboard', 'Overload', 'Price Check', 'Pvm Preset', 'Alog|Exp|Gainz!']
     }
   }
 }
 
 </script>
 <style>
+
   p{
     color: #9BBCD1;
+    background:transparent !important;
   }
   .full-body{
-    height: 100%;
+    min-height: 100%;
     width: 100%;
   }
   .solak-overlayer{
-    background-size: 84% 38rem;
+    background-size: cover;
     width: 100%;
-    height: 425px;
-    position: fixed;
-    top: 77px;
+    height: 405px;
+    position: absolute;
+    top: 0px;
+  }
+  .sidemenu-overlay{
+    position: relative;
+    width: 100%;
+    height: 100px;
+  }
+  .side-menu-container{
+    position: relative;
+    z-index: 3;
   }
   .resize-width-to-v-main
   {
