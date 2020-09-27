@@ -1,14 +1,8 @@
-const axios = require('axios')
+import store from '@/vuex/store'
 
 // hantar value ke other application
 export default async function visWaxInfos () {
-  const visWaxRawData = await axios.get('http://localhost:3000/api/vis-wax', {
-    headers: {
-      // eslint-disable-next-line comma-dangle
-      'Access-Control-Allow-Origin': '*',
-    }
-    // eslint-disable-next-line indent
-      }).then(function (result) {
+  const visWaxRawData = await store.getters.fecthVisWax.then(function (result) {
     // console.log(res)
     return result.data.rawText
   })
