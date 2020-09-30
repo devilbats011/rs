@@ -19,8 +19,12 @@ export default new Vuetify({
         secondary: '#9BBCD1',
         accent1: '#1E2A31',
         accent2: '#27343D',
-        accent3: '#354A56'
-
+        accent3: '#354A56',
+        fire1: '#FF0000',
+        fire2: '#FF5159',
+        fire3: '#EE005F',
+        fire4: '#B62A8F',
+        fire5: '#6D4B9A'
       }
     }
   }
