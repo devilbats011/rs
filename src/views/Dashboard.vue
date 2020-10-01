@@ -1,46 +1,37 @@
 <template>
-<div id="app">
-  <v-app id="inspire">
-    <Navbar />
-    <v-main class="accent1 mt-3" >
-        <v-row class="full-body accent1 ma-0" style="position:relative" >
-          <Sidesmenu />
-          <v-col class="col-9 accent2 ma-0 pa-0 " style="position:relative;z-index:2;auto;height:auto" >
-            <div
-             :style="{ backgroundImage: `url(${bgImg})`, zIndex:3 }"
-             class="ma-0 pa-0 solak-overlayer"
-             ></div>
-            <transition
-             name="block"
-             mode="out-in"
-             >
-              <router-view></router-view>
-            </transition>
-          </v-col>
-        </v-row>
-    </v-main>
-    <Footer />
-  </v-app>
-</div>
+        <v-container class="ml-6 relative" style="width:90%;z-index:3" >
+            <section class="d-flex flex-row my-6" >
+                <v-card class="" style="width:40%;background-color:transparent !important;border:0px solid red" :style="{height: maskHeight}" >
+                      <div class="layer-mask accent3" style="z-index:4" :style="{height: maskHeight}" > </div>
+                      <v-container class="d-flex relative" style="z-index:5;top:7px;left:-7px " >
+                        <v-text-field
+                        prepend-icon="mdi-database-search"
+                        class="accent3 pa-0 ma-0 mx-4"
+                        label=" item price check"
+                        hide-details="auto"
+                      ></v-text-field>
+                        <v-btn class=" mt-1 mr-4 accent2" small >enter</v-btn>
+                      </v-container>
+                </v-card>
+            </section>
+                  <Warband />
+                  <Travelmerchant />
+        </v-container>
 </template>
 
 <script>
 import visWaxInfos from '@/services/viswax'
 import travelmerchant from '@/services/travelmerchant'
+import Warband from '@/components/Warband'
+import Travelmerchant from '@/components/Travelmerchant'
+import { mdiCogs } from '@mdi/js'
 import { mapGetters } from 'vuex'
-import Navbar from '@/views/Navbar'
-import Sidesmenu from '@/views/Sidesmenu'
-import Footer from '@/views/Footer'
-// import Dashboard from '@/views/Dashboard'
-// import 'animate.css'
 
 export default {
-  name: 'App',
+  name: 'Dashboard',
   components: {
-    // Dashboard,
-    Sidesmenu,
-    Navbar,
-    Footer
+    Warband,
+    Travelmerchant
   },
   methods: {
     async visWaxHandler () {
@@ -65,6 +56,7 @@ export default {
   },
   data () {
     return {
+      mdiCogs: mdiCogs,
       toolbarFontSize: '1.5rem',
       viswax: {},
       travelmerchant: [],
@@ -73,7 +65,10 @@ export default {
       sidesmenu: ['Dashboard', 'Overload', 'Price Check', 'Pvm Preset', 'Alog|Exp|Gainz!'],
       data: 0,
       maskHeight: '70px',
-      menusCollectionLocal: null
+      menusCollectionLocal: null,
+      bgImg: null
+
+      // mdiDatabaseSearch: mdiDatabaseSearch
     }
   }
 }
@@ -111,22 +106,5 @@ export default {
   .full-height{
     height: 100%;
   }
-
-.block-enter {
-  Opacity: 0;
-  transform: translateX(22px);
-}
-.block-enter-active {
-  /* transition : opacity 0.8s; */
-  transition: all .3s ease;
-}
-.block-leave {
-  z-index: 2;
-}
-.block-leave-active {
-  /* transition: opacity 0.8s; */
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  Opacity: 0;
-}
 
 </style>

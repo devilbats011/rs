@@ -27,10 +27,10 @@
             class="relative z-5"
           >
             <v-card-text class="py-2"  >
-                <div v-if="tab == 0">
+                <div v-if="tab == 1">
                   tables
                 </div>
-                <div v-else-if="tab == 1"  >
+                <div v-else-if="tab == 0"  >
                   <v-chip
                   v-for="fc in fcs" :key="fc"
                   class="ma-1 white--text"
@@ -53,7 +53,7 @@ export default {
   data () {
     return {
       tab: null,
-      titles: ['warband table', 'warband fc'],
+      titles: ['warband fc', 'warband table'],
       table: 'qweqwerteteryuyiuo',
       fcs: ['MasterBands', 'Moobands', 'Alpha WBS', 'Torment WBS'],
       text: 'no-text'
@@ -61,10 +61,6 @@ export default {
   },
   methods: {
     tabColorHandler () {
-      // eslint-disable-next-line no-unused-vars
-      // let fc
-      // eslint-disable-next-line prefer-const
-      // [this.text, ...fc] = this.titles
       const color = this.randomColor()
       console.log(color)
       return color

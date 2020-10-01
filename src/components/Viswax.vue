@@ -1,6 +1,6 @@
 <template>
               <v-row class="accent1 ">
-                <v-col class="mb-1">
+                <v-col class="mb-2">
               <v-card flat class="relative" style="width:70%;margin:0 15%;overflow:hidden" @click="resizeMaskHeight('viswax')" :style="{height: viwaxHeight}">
                 <div class="layer-mask accent3" :style="{height: viwaxHeight}" ></div>
                 <section style="position:relative;z-index:3">
@@ -22,14 +22,14 @@
 </template>
 
 <script>
-import image from '@/assets/rs3/Air_rune_detail.png'
+import { mapGetters } from 'vuex'
 import { throttle } from 'lodash'
 
 export default {
   name: 'Viswax',
   data () {
     return {
-      image: image,
+      image: null,
       viwaxHeight: '285px'
     }
   },
@@ -42,6 +42,12 @@ export default {
         if (this.viwaxHeight === MINIMIZE_HEIGHT) { this.viwaxHeight = NORMAL_SIZE_HEIGHT } else { this.viwaxHeight = MINIMIZE_HEIGHT }
       }
     }, 800)
+  },
+  mounted () {
+    this.image = this.runesCollection[0]
+  },
+  computed: {
+    ...mapGetters(['runesCollection'])
   }
 }
 </script>
