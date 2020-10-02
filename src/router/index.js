@@ -1,7 +1,6 @@
 /* eslint-disable quotes */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Dashboard from '@/views/Dashboard'
 
 Vue.use(VueRouter)
 
@@ -24,6 +23,11 @@ const routes = [
     path: '/Price-Check',
     name: 'Pricecheck',
     component: () => import(/* webpackChunkName: "Pricecheck" */ '@/views/Pricecheck')
+  },
+  {
+    path: '/Alog',
+    name: 'Alog',
+    component: () => import(/* webpackChunkName: "Pricecheck" */ '@/views/Alog')
   }
 ]
 

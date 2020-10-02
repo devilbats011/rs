@@ -44,8 +44,8 @@ export default {
   },
   mounted () {
     // console.log(this.imagesCollection[0])
-    this.bgImg = this.imagesCollection[0]
-    this.menusCollectionLocal = this.menusCollection
+    // this.bgImg = this.imagesCollection[0]
+    // this.menusCollectionLocal = this.menusCollection
   },
   computed: {
     ...mapGetters([
@@ -64,11 +64,7 @@ export default {
       sidemenu_height: '41%',
       sidesmenu: ['Dashboard', 'Overload', 'Price Check', 'Pvm Preset', 'Alog|Exp|Gainz!'],
       data: 0,
-      maskHeight: '70px',
-      menusCollectionLocal: null,
-      bgImg: null
-
-      // mdiDatabaseSearch: mdiDatabaseSearch
+      maskHeight: '70px'
     }
   }
 }

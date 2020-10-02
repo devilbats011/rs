@@ -57,7 +57,7 @@ export default {
         { name: 'Price Check', route: '/Price-Check' },
         { name: 'Overload', route: '/Overload' },
         { name: 'Pvm Preset', route: '/Pvm-Preset' },
-        { name: 'Alog|Exp|Gainz!', route: '/Alog!' }
+        { name: 'Alog|Exp|Gainz!', route: '/Alog' }
       ],
       data: 0,
       maskHeight: '70px',
