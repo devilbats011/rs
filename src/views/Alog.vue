@@ -17,12 +17,12 @@
     <v-card class="accent3 of-hidden relative mt-6" style="width:100%;height:auto;background-color:transparent !important" >
         <div class="layer-mask accent3" style="height:540px;z-index:4" id="alog-mask"> </div>
         <v-row class="relative z-5  d-flex flex-wrap">
-        <v-col class=" col-6 borderCheck">
+        <v-col class=" col-6 accent1">
 
-        <v-card-title class="white--text relative z-5 ml-3 mb-0">Quest Tracker</v-card-title>
-          <svg height="200" width="200" viewBox="0 0 160 160" style="border:0px dashed transparent;margin:6px;"
+        <v-card-title class="primary--text relative z-5 ml-3 mb-0">Quest Tracker</v-card-title>
+          <svg height="220" width="220" viewBox="0 0 160 160" class="ml-5" style="border:0px dashed transparent;"
           >
-          <text text-anchor="middle" x="80" y="84" style="font-size:14px" fill="white"> Quest% </text>
+          <text text-anchor="middle" x="80" y="84" style="font-size:14px;font-style: italic;" fill="white"> Quest% </text>
             <g v-for="(value, index) in sortedValues" :key="index" >
               <circle
                :cx="cx"
@@ -39,15 +39,19 @@
             </g>
           </svg>
         </v-col>
-        <v-col class="col-6 borderCheck">
-          <v-card-title class="white--text relative z-5 ml-3 mb-0">Clue Scrolls Tracker </v-card-title>
+        <v-col class="col-6 accent1">
+          <Scrollchart/>
         </v-col>
         </v-row>
     </v-card>
 </v-container>
 </template>
 <script>
+import Scrollchart from '@/components/Scrollchart'
 export default {
+  components: {
+    Scrollchart
+  },
   //  transform="rotate(-90) translate(-160)"
   //  :stroke-dasharray="circumference"
   name: 'Alog',
@@ -99,16 +103,10 @@ export default {
         console.log(error, 'error in returnCircleTransformValue')
         return null
       }
-    }
-  },
-  computed: {
-    circumference () {
-      return 2 * Math.PI * this.radius
     },
-    // eslint-disable-next-line vue/return-in-computed-property
     calculateChartData () {
       this.sortedValues.forEach((dataVal, index) => {
-        console.warn(dataVal, 'dttdtdtd')
+        // console.warn(dataVal, 'dttdtdtd')
         const { x, y } = this.calculateTextCoords(dataVal, this.angleOffset)
         const data = {
           degrees: this.angleOffset,
@@ -118,6 +116,11 @@ export default {
         this.chartData.push(data)
         this.angleOffset = this.dataPercentage(dataVal) * 360 + this.angleOffset
       })
+    }
+  },
+  computed: {
+    circumference () {
+      return 2 * Math.PI * this.radius
     },
     adjustedCircumference () {
       return this.circumference - 3
@@ -127,7 +130,7 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$vuetify.theme.themes.dark)
+    // console.log(this.$vuetify.theme.themes.dark)
     this.initSetHeight()
     this.initSortValuesAndCalculateChartData()
   },
