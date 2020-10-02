@@ -20,7 +20,7 @@ export default new Vuex.Store({
   state: {
     images: [bgImg1],
     runes: [air],
-    menusImgs: [homeImg, coins, overload, zgs, gainz]
+    menusImgs: [homeImg, coins, gainz, overload, zgs]
   },
   mutations: {
     searchitemWithId: (state, id) => { return myApi.get(`pc/item/${id}`) },
@@ -36,7 +36,8 @@ export default new Vuex.Store({
     fecthVisWax: state => myApi.get('vis-wax'),
     imagesCollection: state => state.images,
     runesCollection: state => state.runes,
-    menusCollection: state => state.menusImgs
+    menusCollection: state => state.menusImgs,
+
   },
   actions: {
   },

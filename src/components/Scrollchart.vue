@@ -1,6 +1,6 @@
 <template>
     <v-card flat class="relative z-5 bg-transparent" height="100%" >
-        <v-card-title class="primary--text relative z-5  ma-0 pa-0 mt-2" >Treasure Hunter Scrolls </v-card-title>
+        <v-card-title class="primary--text relative z-5  ma-0 pa-0 mt-2" >Treasure Hunter Tracker </v-card-title>
                 <!-- <svg height="200" width="200" viewBox="0 0 160 160" style="border:0px dashed transparent;margin:6px;" -->
         <svg height="260" width="260" viewBox="0 0 100 100" class="ma-0 relative z-5" >
             <g v-for="(rd,i) in radius" :key="i"
@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     calculateStrokeDashArray (percentage, r) {
-      console.warn(percentage, r)
+      // console.warn(percentage, r)
       const c = this.circumference(r)
       const num = (percentage * c) / 100
       const values = num + ` ${c}`
@@ -63,17 +63,17 @@ export default {
     },
     circumference (r) {
       return 2 * Math.PI * r
-    },
-    sortedValue () {
-      this.sortedValue = this.values.sort((a, b) => a - b)
     }
+    // sortedValue () {
+    //   this.sortedValue = this.values.sort((a, b) => a - b)
+    // }
   },
   computed: {
     // expected to return value
     // must be non-argument function
   },
   mounted () {
-    this.sortedValue()
+    // this.sortedValue()
   }
 }
 </script>

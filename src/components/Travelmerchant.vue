@@ -4,36 +4,36 @@
         <div class="layer-mask accent3" style="height:200px;z-index:4"> </div>
         <v-card-text class="relative" style="z-index:5" >
             <v-card-title>
-                <div class="white--text">Travel Merchant's Stock</div>
+                <div class="primary--text">Travel Merchant's Stock</div>
             </v-card-title>
         <!-- <div class="relative" style="z-index:5">travel merchant</div> -->
           <v-data-table
           height="auto"
-          class="elevation-3 accent3 primary--text relative my-3"
+          class="elevation-3 accent3 white--text relative my-3"
           :headers="headers1"
           :items="desserts"
           hide-default-footer
           >
             <template v-slot:top>
                 <v-toolbar class="accent3" flat >
-                <v-toolbar-title class="primary--text body-1" >Today 20/10/2020</v-toolbar-title>
+                <v-toolbar-title class="white--text body-1" >Today 20/10/2020</v-toolbar-title>
                 </v-toolbar>
             </template>
           </v-data-table>
 
         <v-data-table
           height="auto"
-          class="elevation-3 accent3 primary--text relative mt-8 mb-3 caption"
+          class="elevation-3 accent3 white--text relative mt-8 mb-3 caption"
           :headers="headers2"
           :items="desserts"
           hide-default-footer
           >
-      <template v-slot:top>
+        <template v-slot:top>
         <v-toolbar class="accent3" flat >
           <v-toolbar-title class="primary--text body-1" elevation >Tomorrow 21/10/2020</v-toolbar-title>
         </v-toolbar>
       </template>
-          </v-data-table>
+      </v-data-table>
         </v-card-text>
     </v-card>
   </section>

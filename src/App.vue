@@ -7,7 +7,7 @@
           <Sidesmenu />
           <v-col class="col-9 accent2 ma-0 pa-0 " style="position:relative;z-index:2;auto;height:auto" >
             <div
-             :style="{ backgroundImage: `url(${bgImg})`, zIndex:3 }"
+             :style="{ backgroundImage: `url(${imagesCollection[0]})`, zIndex:3 }"
              class="ma-0 pa-0 solak-overlayer"
              ></div>
             <transition
@@ -31,13 +31,10 @@ import { mapGetters } from 'vuex'
 import Navbar from '@/views/Navbar'
 import Sidesmenu from '@/views/Sidesmenu'
 import Footer from '@/views/Footer'
-// import Dashboard from '@/views/Dashboard'
-// import 'animate.css'
 
 export default {
   name: 'App',
   components: {
-    // Dashboard,
     Sidesmenu,
     Navbar,
     Footer
@@ -53,8 +50,8 @@ export default {
   },
   mounted () {
     // console.log(this.imagesCollection[0])
-    this.bgImg = this.imagesCollection[0]
-    this.menusCollectionLocal = this.menusCollection
+    // this.bgImg = this.imagesCollection[0]
+    // this.menusCollectionLocal = this.menusCollection
   },
   computed: {
     ...mapGetters([
@@ -69,8 +66,6 @@ export default {
       viswax: {},
       travelmerchant: [],
       drawer: false,
-      sidemenu_height: '41%',
-      sidesmenu: ['Dashboard', 'Overload', 'Price Check', 'Pvm Preset', 'Alog|Exp|Gainz!'],
       data: 0,
       maskHeight: '70px',
       menusCollectionLocal: null

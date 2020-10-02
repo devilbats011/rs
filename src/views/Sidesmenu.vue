@@ -10,7 +10,7 @@
                     class="pa-2 primary--text accent2 d-flex flex-row justify-start " style="font-size:16px;cursor:pointer;postion:relative;left:36px;overflow:hidden;height:4rem;"
                     :to="item.route"
                     tile >
-                       <v-avatar tile class="" > <img :src="menusCollectionLocal[i]" style="height:33px;width:30px;" alt="sidemenus-icon" /></v-avatar>
+                       <v-avatar tile class="" > <img :src="menusCollection[i]" style="height:33px;width:30px;" alt="sidemenus-icon" /></v-avatar>
                        <p class="py-4 px-1"> {{ item.name }} </p>
                   </v-card>
                 </v-col>
@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import visWaxInfos from '@/services/viswax'
-import travelmerchant from '@/services/travelmerchant'
+// import visWaxInfos from '@/services/viswax'
+// import travelmerchant from '@/services/travelmerchant'
 import Viswax from '@/components/Viswax'
 import { mapGetters } from 'vuex'
 
@@ -30,16 +30,15 @@ export default {
     Viswax
   },
   methods: {
-    async visWaxHandler () {
-      this.viswax = await visWaxInfos()
-    },
-    async travelmerchantHandler () {
-      this.travelmerchant = await travelmerchant()
-      console.log(this.travelmerchant)
-    }
+    // async visWaxHandler () {
+    //   this.viswax = await visWaxInfos()
+    // },
+    // async travelmerchantHandler () {
+    //   this.travelmerchant = await travelmerchant()
+    //   console.log(this.travelmerchant)
+    // }
   },
   mounted () {
-    this.menusCollectionLocal = this.menusCollection
   },
   computed: {
     ...mapGetters([
@@ -55,13 +54,11 @@ export default {
       sidesmenu: [
         { name: 'Dashboard', route: '/Dashboard' },
         { name: 'Price Check', route: '/Price-Check' },
+        { name: 'Alog|Exp|Gainz!', route: '/Alog' },
         { name: 'Overload', route: '/Overload' },
-        { name: 'Pvm Preset', route: '/Pvm-Preset' },
-        { name: 'Alog|Exp|Gainz!', route: '/Alog' }
+        { name: 'Pvm Preset', route: '/Pvm-Preset' }
       ],
-      data: 0,
       maskHeight: '70px',
-      menusCollectionLocal: null
     }
   }
 }

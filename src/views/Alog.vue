@@ -2,7 +2,7 @@
 <v-container class="ml-6 relative" style="width:90%;z-index:3;height:auto" id="alog-container" >
     <v-card class="accent3 of-hidden relative mt-3" style="width:100%;height:auto;background-color:transparent !important" >
         <div class="layer-mask accent3" style="height:240px;z-index:4" id="alog-mask"> </div>
-        <v-card-title class="white--text relative z-5 ml-5 mb-0">Boss Kill Tracker</v-card-title>
+        <v-card-title class="primary--text relative z-5 ml-5 mb-0">Boss Kill Tracker</v-card-title>
         <section class="relative z-5 container-bar">
           <div class="bar-component d-flex my-3"  v-for="(boss,i) in bosses" :key="i">
             <div class="bar-label caption">{{boss.bossName}}</div>
@@ -48,6 +48,8 @@
 </template>
 <script>
 import Scrollchart from '@/components/Scrollchart'
+import { initSetHeightMask } from '@/vuex/util.js'
+
 export default {
   components: {
     Scrollchart
@@ -75,13 +77,13 @@ export default {
       }
       return textCoords
     },
-    initSetHeight () {
-      const section = window.document.querySelector('#alog-container')
-      // eslint-disable-next-line prefer-const
-      let sectionHeight = section.offsetHeight
-      const mask = window.document.querySelector('#alog-mask')
-      mask.style.height = sectionHeight + 'px'
-    },
+    // initSetHeight () {
+    //   const section = window.document.querySelector('#alog-container')
+    //   // eslint-disable-next-line prefer-const
+    //   let sectionHeight = section.offsetHeight
+    //   const mask = window.document.querySelector('#alog-mask')
+    //   mask.style.height = sectionHeight + 'px'
+    // },
     calculateStrokeDashOffset (valuePortion) {
       // const num = (this.dataPercentage(valuePortion) * this.circumference) / 100
       // const str = num + ` ${this.circumference}`
@@ -128,10 +130,15 @@ export default {
     dataTotal () {
       return this.sortedValues.reduce((acc, val) => acc + val)
     }
+    // ...mapGetters([
+    //   'init'
+    //   // ...
+    // ])
   },
   mounted () {
     // console.log(this.$vuetify.theme.themes.dark)
-    this.initSetHeight()
+    // hw('hello')
+    initSetHeightMask()
     this.initSortValuesAndCalculateChartData()
   },
   data () {
