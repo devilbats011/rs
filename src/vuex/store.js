@@ -20,14 +20,16 @@ export default new Vuex.Store({
   state: {
     images: [bgImg1],
     runes: [air],
-    menusImgs: [homeImg, coins, gainz, overload, zgs]
+    menusImgs: [homeImg, coins, gainz, overload, zgs],
+    hw: 'null-data'
   },
   mutations: {
     searchitemWithId: (state, id) => { return myApi.get(`pc/item/${id}`) },
     searchItemDetail: (state, name) => { return myApi.get(`pc/item-detail/${name}`) },
     searchItems: (state, name) => { return myApi.get(`pc/items/${name}`) },
     searchOverloadIngredient: (state, name) => { return myApi.get(`overload/${name}`) },
-    searchGeneralRs: (state, name) => myApi.get(`general-rs/${name}`)
+    searchGeneralRs: (state, name) => myApi.get(`general-rs/${name}`),
+    hw: hw
   },
   getters: {
     fecthTravelMerchant: state => {
@@ -36,7 +38,7 @@ export default new Vuex.Store({
     fecthVisWax: state => myApi.get('vis-wax'),
     imagesCollection: state => state.images,
     runesCollection: state => state.runes,
-    menusCollection: state => state.menusImgs,
+    menusCollection: state => state.menusImgs
 
   },
   actions: {
@@ -45,3 +47,8 @@ export default new Vuex.Store({
 
   }
 })
+
+function hw (state, val) {
+  console.log(val)
+  state.hw = val
+}

@@ -2,7 +2,7 @@
         <v-footer
         class="accent2"
       >
-        <span class="white--text ">&copy; Power by Vuetify </span>
+        <span class="white--text ">&copy; {{ this.$store.state.hw }} </span>
       </v-footer>
 </template>
 

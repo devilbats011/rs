@@ -1,8 +1,9 @@
 <template>
     <v-card flat class="relative z-5 bg-transparent" height="100%" >
         <v-card-title class="primary--text relative z-5  ma-0 pa-0 mt-2" >Treasure Hunter Tracker </v-card-title>
-                <!-- <svg height="200" width="200" viewBox="0 0 160 160" style="border:0px dashed transparent;margin:6px;" -->
-        <svg height="260" width="260" viewBox="0 0 100 100" class="ma-0 relative z-5" >
+          <v-row class="col-12 relative ma-0 pa-0 mt-7" style="height:100%;width:100%">
+          <v-col class="ma-0 pa-0 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <svg height="220" width="220" viewBox="0 0 100 100" class="ma-0 relative z-5" >
             <g v-for="(rd,i) in radius" :key="i"
              >
               <circle
@@ -27,14 +28,33 @@
               transform="rotate(-90) translate(-100)"
               ></circle>
             </g>
-            <text text-anchor="middle" x="50" y="52" style="font-size:8px;font-style: italic;" fill="white"> Elite </text>
+            <text text-anchor="middle" x="50" y="52" style="font-size:7px;font-style: italic;" fill="white"> Master </text>
         </svg>
+         </v-col>
+          <v-col class="ma-0 pa-1 px-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+         <v-list class="accent1 pa-0 ma-0 border-check" >
+        <v-list-item-group v-model="model">
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+          >
+            <v-list-item-icon class="pa-0 ma-auto mr-1">
+             <div class="round-icon" :style='{backgroundColor: colors[i]}' ></div>
+            </v-list-item-icon>
+            <v-list-item-content class="ma-auto pa-0 primary--text" style="font-size:12px;text-align:left" >
+             {{ item.text }}
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+            </v-col>
+      </v-row>
     </v-card>
 </template>
 
 <script>
 export default {
-  name: 'Scrollchart',
+  name: 'Treasurehunter',
   data () {
     return {
       radius: [18, 30, 42],
@@ -47,6 +67,20 @@ export default {
         '#0066D1',
         '#00B372',
         '#845EC2'
+      ],
+      items: [
+        {
+          text: 'Master'
+        },
+        {
+          text: 'Elite'
+        },
+        {
+          text: 'Hard'
+        },
+        {
+          text: 'Medium'
+        }
       ],
       cx: 50,
       cy: 50,

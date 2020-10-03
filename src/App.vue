@@ -1,6 +1,7 @@
 <template>
 <div id="app">
   <v-app id="inspire">
+    <Model />
     <Navbar />
     <v-main class="accent1 mt-3" >
         <v-row class="full-body accent1 ma-0" style="position:relative" >
@@ -31,13 +32,15 @@ import { mapGetters } from 'vuex'
 import Navbar from '@/views/Navbar'
 import Sidesmenu from '@/views/Sidesmenu'
 import Footer from '@/views/Footer'
+import Model from '@/views/Model'
 
 export default {
   name: 'App',
   components: {
     Sidesmenu,
     Navbar,
-    Footer
+    Footer,
+    Model
   },
   methods: {
     async visWaxHandler () {
@@ -49,9 +52,7 @@ export default {
     }
   },
   mounted () {
-    // console.log(this.imagesCollection[0])
-    // this.bgImg = this.imagesCollection[0]
-    // this.menusCollectionLocal = this.menusCollection
+    this.$store.commit('hw', 'Craft with passion-n-love ')
   },
   computed: {
     ...mapGetters([

@@ -24,7 +24,9 @@ export default new Vuetify({
         fire2: '#FF5159',
         fire3: '#EE005F',
         fire4: '#B62A8F',
-        fire5: '#6D4B9A'
+        fire5: '#6D4B9A',
+        green: '#803C80',
+        blue: '#1F306F'
       }
     }
   }

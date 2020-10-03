@@ -13,7 +13,8 @@ function setChildToParentHeight (parentId, childId) {
   const mask = window.document.querySelector(`#${childId}`)
   mask.style.height = sectionHeight + 'px'
 }
-function hw (val) {
-  console.log(val, 'get val')
-}
-export { hw, initSetHeightMask, setChildToParentHeight }
+// function hw (val) {
+//   console.log(val, 'get val')
+// }
+
+export { initSetHeightMask, setChildToParentHeight }
