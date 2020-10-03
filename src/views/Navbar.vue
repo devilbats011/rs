@@ -32,8 +32,9 @@
       >
         <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
         <v-toolbar-title class="relative" :style="{ fontSize: toolbarFontSize, left:'2.4rem' }" >Le Cult</v-toolbar-title>
-        <v-toolbar-title :style="{ marginLeft:'19%', fontSize: toolbarFontSize }">Dashboard</v-toolbar-title>
-        <p class="ma-6 ml-5" style="font-size:0.9rem;font-style: italic;" >Welcome to Le Cult, leveraging your rs3 experience!</p>
+        <v-toolbar-title :style="{ marginLeft:'19%', fontSize: toolbarFontSize }">Dashboard </v-toolbar-title>
+        <p class="ma-6 ml-5 mr-2" style="font-size:0.8rem;font-style: italic;" >Welcome to Le Cult, leveraging your rs3 experience!</p>
+         <!-- <span style="font-size:10px" class="blacky rounded pa-1" > &reg; Black Lives Matter</span> -->
         <v-spacer></v-spacer>
         <v-icon color="primary relative" size="2.2rem" style="right:2.2rem;">{{ mdiCogs }}</v-icon>
       </v-app-bar>

@@ -29,7 +29,7 @@ export default new Vuex.Store({
     searchItems: (state, name) => { return myApi.get(`pc/items/${name}`) },
     searchOverloadIngredient: (state, name) => { return myApi.get(`overload/${name}`) },
     searchGeneralRs: (state, name) => myApi.get(`general-rs/${name}`),
-    hw: hw
+    footerText: footerText
   },
   getters: {
     fecthTravelMerchant: state => {
@@ -48,7 +48,7 @@ export default new Vuex.Store({
   }
 })
 
-function hw (state, val) {
+function footerText (state, val) {
   console.log(val)
   state.hw = val
 }

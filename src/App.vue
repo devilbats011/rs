@@ -52,7 +52,7 @@ export default {
     }
   },
   mounted () {
-    this.$store.commit('hw', 'Craft with passion-n-love ')
+    this.$store.commit('footerText', ' Black Lives Matter ')
   },
   computed: {
     ...mapGetters([
